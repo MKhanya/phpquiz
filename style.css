@@ -1,0 +1,9 @@
+body {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: 'Baloo Chettan', cursive;
+    color: black;
+    background-color: blueviolet;
+}

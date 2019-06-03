@@ -1,149 +1,312 @@
 <!DOCTYPE html>
-<html lang=en>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="styling.css">
-    <title>Quiz</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<link href="https://fonts.googleapis.com/css?family=Baloo+Chettan" rel="stylesheet">
+<link rel="stylesheet" type="text/css" media="screen" href="style.css"/>
+    <title>Php Quiz</title>
 </head>
 <body>
-<form action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>>"
-<form action="index.php" method="post">
 
-    <?php
-    echo "<h1>Life Sciences Quiz</h1><br>";
-    //questions
-    $questions = array(         array("Question 1: Plants uses energy...<br>",
-                               "Question 2: Which of the following substances can directly be absorbed by blood without further digestion?<br>",
-                                "Question 3: Which of the following occurs during inhalation in a human?<br>",
-                                "Question 4: The rate of breathing is regulated by the medulla oblongata, mainly …<br>",
-                                "Question 5: Which of the following is part of the human circulatory system?<br>",
-                                "Question 6: Which of the following is a density-dependent factor?<br>",
-                                "Question 7: The disorder resulting from insufficient intake of energy food<br>",
-                                "Question 8: Alternation of generations is exhibited by …<br>",
-                                "Question 9: The event that leads from the haploid stage to the diploid stage in alternation of generations:<br>",
-                                "Question 10: In gymnosperms pollination is exclusively by ...<br>",
-                                "Question 11: Land plants are probably descendants of which of these groups?<br>",
-                                "Question 12: The part of the flower which becomes the fruit is the …<br>",
-                                "Question 13: Which of the following is NOT a threat to food security?<br>",
-                                "Question 14: Which one of the following processes is responsible for the production of male gametes?<br>",
-                                "Question 15: A trait that has a range of phenotype is an example of<br> ",
-                               "Question 16: DNA replication occurs during...<br>",
-                                "Question 17: Which plant hormone promotes seed dormancy<br> ",
-                                "Question 18: Cells that can differentiate into any type of cell are called...<br>",
-                                "Question 19: The DNA of different species only differs in the...<br>",
-                                "Question 20: Adenine pairs with..."),
-                                array("Question 1","Question 2","Question 3","Question 4","Question 5","Question 6","Question 7 <br>",
-                                "Question 8","Question 9","Question 10","Question 11","Question 12","Question 13","Question 14 <br>",
-                                "Question 15","Question 16","Question 17","Question 18","Question 19", "Question 20<br>"),
-    
+<div class="content">
 
-                                array(array("continuosly","during the day only","during the night only","during photosynthesis only"),
-                                      array("Proteins","Starch","Glucose","Fats"),
-                                      array("Pressure within the thoracic cavity decreases","The lungs collapse","The diaphragm relaxes","Pressure in the abdominal cavity decreases"),
-                                      array("under voluntary control.","according to the oxygen level of blood.","according to the blood pressure.","according to the carbon dioxide level of blood."),
-                                      array("Glomerulus","Convoluted tubels","Loop of Henle","Bowman's capsule"), 
-                                      array("Drought","Temperature","Predation","Fire"),
-                                      array("Kwashiorkor","Marasmus","Atherosclerosis","Bulimia"),
-                                      array("Bryophytes","Pteridophytes","Spermatophytes","All of the above"),
-                                      array("Germination","Fertilization","Meiosis","Mitosis"),
-                                      array("Animals","Water","Wind","Insects"),
-                                      array("Green Algae","Red Algae","Brown Algae","Pink Algae"),
-                                      array("Petals","Ovary","Ovule","Anther"),
-                                      array("Climate Change","Human exponential population growth","Birth Control","Wastage"),
-                                      array("Spermatogenesis","Oogenesis","Ejaculation","Ovulation"),
-                                      array("continuos variation","discontinuos variation","complete dominance","codominance"),
-                                      array("anaphase I","interphase","prophase I","prophase II"),
-                                      array("Gibberellin","Auxin","Abscisic acid","Growth hormone"),
-                                      array("sex cells","daughter cells","stem cells","haploid cells"),
-                                      array("components of the nucleotides","sequence of the nucleotides","type of bond between the nitrogeneous bases","type of sugar that it contains"),
-                                      array("Uracil","RNA","Guanine","Thymine")));
+<form action="Index.php" method="post">  
+<h1>Sciences Quiz</h1>
+<?php
+	$total = 0;
+$Quiz = array
+(
+array('question'=>"1. Plants uses energy...",
+'continuosly<br>',
+'during the day only<br>',
+'during the night only<br>',
+'during photosynthesis only'
+),
+array('question'=>"2. Which of the following substances can directly be absorbed by blood without further digestion?",
+'Proteins<br>',
+'Starch<br>',
+'Glucose<br>',
+'Fats'
+),
+array('question'=>"3. Which of the following occurs during inhalation in a human?",
+'Pressure within the thoracic cavity decreases<br>',
+'The lungs collapse<br>',
+'The diaphragm relaxes<br>',
+'Pressure in the abdominal cavity decreases'
+),
+array('question'=>"4. The rate of breathing is regulated by the medulla oblongata, mainly …",
+'under voluntary control<br>',
+'according to the oxygen level of blood<br>',
+'according to the blood pressure<br>',
+'according to the carbon dioxide level of blood'
+),
+array('question'=>"5. Which of the following is part of the human circulatory system?",
+'Glomerulus<br>',
+'Convoluted tubels<br>',
+'Loop of Henle<br>',
+'Bowmans capsule'
+),
+array('question'=>"6. Which of the following is a density-dependent factor?",
+'Drought<br>',
+'Temperature<br>',
+'Predation<br>',
+'Fire'
+),
+array('question'=>"7. The disorder resulting from insufficient intake of energy food",
+'Kwashiorkor<br>',
+'Marasmus<br>',
+'Atherosclerosis<br>',
+'Bulimia'
+),
+array('question'=>"8. Alternation of generations is exhibited by …",
+'Bryophytes<br>',
+'Pteridophytes<br>',
+'Spermatophytes<br>',
+'All of the above'
+),
+array('question'=>"9. The event that leads from the haploid stage to the diploid stage in alternation of generations",
+'Germination<br>',
+'Fertilization<br>',
+'Meiosis<br>',
+'Mitosis'
+),
+array('question'=>"10. In gymnosperms pollination is exclusively by ...",
+'Animals<br>',
+'Water<br>',
+'Wind<br>',
+'Insects'
+),
+array('question'=>"11. Land plants are probably descendants of which of these groups?",
+'Green Algae<br>',
+'Red Algae<br>',
+'Brown Algae<br>',
+'Pink Algae'
+),
+array('question'=>"12. The part of the flower which becomes the fruit is the …",
+'Petals<br>',
+'Ovary<br>',
+'Ovule<br>',
+'Anther'
+),
+array('question'=>"13. Which of the following is NOT a threat to food security?",
+'Climate Change<br>',
+'Human exponential population growth<br>',
+'Birth Control<br>',
+'Wastage'
+),
+array('question'=>"14. Which one of the following processes is responsible for the production of male gametes?",
+'Spermatogenesis<br>',
+'Oogenesis<br>',
+'Ejaculation<br>',
+'Ovulation'
+),
+array('question'=>"15. A trait that has a range of phenotype is an example of",
+'continuos variation<br>',
+'discontinuos variation<br>',
+'complete dominance<br>',
+'codominance'
+),
+array('question'=>"16. DNA replication occurs during...",
+'anaphase I<br>',
+'interphase<br>',
+'prophase I<br>',
+'prophase II'
+),
+array('question'=>"17. Which plant hormone promotes seed dormancy",
+'Gibberellin<br>',
+'Auxin<br>',
+'Abscisic acid<br>',
+'Growth hormone'
+),
+array('question'=>"18. Cells that can differentiate into any type of cell are called...",
+'sex cells<br>',
+'daughter cells<br>',
+'stem cells<br>',
+'haploid cells'
+),
+array('question'=>"19. The DNA of different species only differs in the...",
+'components of the nucleotides<br>',
+'sequence of the nucleotides<br>',
+'type of bond between the nitrogeneous bases<br>',
+'type of sugar that it contains'),
 
-for ($x=0; $x<=19 ; $x++){
-    echo $questions[0][$x] ."<br>";
-    for ($z=0; $z<=3; ++$z) {
-        echo "\n<input type=\"radio\" name=\"".$questions[1][$x]. "\"value=\"". $questions[2][$x][$z]. "\">\"". $questions[2][$x][$z]."\"";
-    }   echo "<br><br>";
-};
+array('question'=>"20. Adenine pairs with...",
+'Uracil<br>',
+'RNA<br>',
+'Guanine<br>',
+'Thymine'
+),
+);
+?>
 
+<?php
+for ($row = 0; $row < count($Quiz); $row++) { ?>
+<section class="box">
+
+<p>
+  <h2>
+	<?php
+	 echo $Quiz[$row]['question'];?>
+  </h2>
+</p>
+
+<?php 
+$x = 0;
+	
+for($r = $row*4; $r < ($row+1)*4; $r++){
+  ?>
+  <input type='radio' name="<?php echo $row; ?>" value="<?php echo $x ?>" id="<?php echo $r ?>">
+	<label class="option" for="<?php echo $r ?>">
+	<?php echo $Quiz[$row][$x] ?></label>
+			<?php
+					$x++; 
+		
+		} ?>
+		<?php 
+		
+		?>
+	
+			</section>
+		</section>
+
+	<?php }
+?>
+
+<?php
 if(isset($_POST['submit'])){
-    $x=0;
-    if (isset($_POST['question1']) && $_POST['question1']==="continuosly"){
-        $x++;
-    }
-if (isset($_POST['question2']) && $_POST['question2']==="Glucose"){
-    $x++;
+		if(isset($_POST['0'])){
+			if($_POST['0'] == 0){
+			$total++;
+			}
+		}
+		if(isset($_POST['1'])){
+			if($_POST['1'] == 2){
+			$total++;
+			}
+		}
+		if(isset($_POST['2'])){
+			if($_POST['2'] == 0){
+			$total++;
+			}
+		}
+		if(isset($_POST['3'])){
+			if($_POST['3'] == 3){
+			$total++;
+			}
+		}
+		if(isset($_POST['4'])){
+			if($_POST['4'] == 0){
+			$total++;
+			}
+		}
+		if(isset($_POST['5'])){
+			if($_POST['5'] == 2){
+			$total++;
+			}
+		}
+		if(isset($_POST['6'])){
+			if($_POST['6'] == 1){
+			$total++;
+			}
+		}
+		if(isset($_POST['7'])){
+			if($_POST['7'] == 3){
+			$total++;
+			}
+		}
+		if(isset($_POST['8'])){
+			if($_POST['8'] == 1){
+			$total++;
+			}
+		}
+		if(isset($_POST['9'])){
+			if($_POST['9'] == 2){
+			$total++;
+			}
+		}
+		if(isset($_POST['10'])){
+			if($_POST['10'] == 0){
+			$total++;
+			}
+		}
+		if(isset($_POST['11'])){
+			if($_POST['11'] == 1){
+			$total++;
+			}
+		}
+		if(isset($_POST['12'])){
+			if($_POST['12'] == 2){
+			$total++;
+			}
+		}
+		if(isset($_POST['13'])){
+			if($_POST['13'] == 0){
+			$total++;
+			}
+		}
+		if(isset($_POST['14'])){
+			if($_POST['14'] == 2){
+			$total++;
+			}
+		}
+		if(isset($_POST['15'])){
+			if($_POST['15'] == 0){
+			$total++;
+			}
+		}
+		if(isset($_POST['16'])){
+			if($_POST['16'] == 1){
+			$total++;
+			}
+		}
+		if(isset($_POST['17'])){
+			if($_POST['17'] == 2){
+			$total++;
+			}
+		}
+		if(isset($_POST['18'])){
+			if($_POST['18'] == 2){
+			$total++;
+			}
+		}
+		if(isset($_POST['19'])){
+			if($_POST['19'] == 1){
+			$total++;
+			}
+		}
+		if(isset($_POST['20'])){
+			if($_POST['20'] == 2){
+			$total++;
+			}	
+		}
+	
 }
-if (isset($_POST['question3']) && $_POST['question3']==="Pressure within the thoracic cavity decreases "){
-    $x++;
+echo "<h4> Your score is:"."<br>"."$total"."/20 </h4>";
+ if($total >= 0 && $total <= 5){
+	echo "<h3> Dissapointing! Do the quiz again </h3>";
 }
-if (isset($_POST['question4']) && $_POST['question4']==="according to the carbon dioxide level of blood"){
-    $x++;
+else if($total >=6 && $total <= 10){
+	echo "<h3> Your average! Keep trying for better marks. </h3>";
 }
-if (isset($_POST['question5']) && $_POST['question5']==="Glomerulus"){
-    $x++;
+else if($total >= 12 && $total <= 18){
+	echo "<h3> Good! You can do better than this.</h3>";
 }
-if (isset($_POST['question6']) && $_POST['question6']==="Predation"){
-    $x++;
+else if($total >= 19 && $total <= 20){
+	echo "<h3> Congratulations you killed it.</h3>";
 }
-if (isset($_POST['question7']) && $_POST['question7']==="Marasmus"){
-    $x++;
-}
-if (isset($_POST['question8']) && $_POST['question8']==="All plants"){
-    $x++;
-}
-if (isset($_POST['question9']) && $_POST['question9']==="Fertilization"){
-    $x++;
-}
-if (isset($_POST['question10']) && $_POST['question10']==="Wind"){
-    $x++;
-}
-if (isset($_POST['question11']) && $_POST['question11']==="Green Algae"){
-    $x++;
-}
-if (isset($_POST['question12']) && $_POST['question12']==="Ovary"){
-    $x++;
-}
-if (isset($_POST['question13']) && $_POST['question13']==="Birth control"){
-    $x++;
-}
-if (isset($_POST['question14']) && $_POST['question14']==="Spermatogenesis"){
-    $x++;
-}
-if (isset($_POST['question15']) && $_POST['question15']==="Continuos variation"){
-    $x++;
-}
-if (isset($_POST['question16']) && $_POST['question16']==="Interphase"){
-    $x++;
-}
-if (isset($_POST['question17']) && $_POST['question17']==="Abscisic acid"){
-    $x++;
-}
+?>
 
-if (isset($_POST['question18']) && $_POST['question18']==="Stem cells"){
-    $x++;
-}
-if (isset($_POST['question19']) && $_POST['question19']==="Sequence of nucleotides"){
-    $x++;
-}
-if (isset($_POST['question20']) && $_POST['question20']==="Guanine"){
-    $x++;
-}
-    echo "Your score is $x <br>";
-    if ($x>15){
-        echo "Yes";
-    }elseif ($x>10){
-        echo "OK";
-    }else{
-        echo "You didn't do good!";
-    }
-}
+<br>
 
-      ?>
+<section>
 
+			<input id="submit" type="submit" name="submit" value="Submit Quiz"></h2>
+	</section>
+	</form>
+	<br>
+	</div>
 
-
- <input type="submit" value="submit" name="submit">
- </form>
-    
 </body>
 </html>
